@@ -20,6 +20,7 @@ class ComposeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     
     }
 
@@ -27,10 +28,36 @@ class ComposeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         
     }
-    
+
     @IBAction func onTabBack(sender: AnyObject) {
         
+        // Stagger the animate out...there has to be a better way to do this...
+        
+        UIView.animateWithDuration(0.1, animations: { () -> Void in
+            self.photoButton.transform = CGAffineTransformMakeTranslation(0, -500)
+        })
+        
+        UIView.animateWithDuration(0.2, animations: { () -> Void in
+            self.chatButton.transform = CGAffineTransformMakeTranslation(0, -500)
+            self.quoteButton.transform = CGAffineTransformMakeTranslation(0, -500)
+
+        })
+        
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.textButton.transform = CGAffineTransformMakeTranslation(0, -500)
+        })
+        
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.linkButton.transform = CGAffineTransformMakeTranslation(0, -500)
+        })
+        
+        UIView.animateWithDuration(0.6, animations: { () -> Void in
+            self.videoButton.transform = CGAffineTransformMakeTranslation(0, -500)
+        })
+        
         dismissViewControllerAnimated(true, completion: nil)
+        
+        
         
     }
 

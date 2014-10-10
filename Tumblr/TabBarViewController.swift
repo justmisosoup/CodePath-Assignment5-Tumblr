@@ -96,8 +96,9 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
     
     @IBAction func onComposeButton(sender: AnyObject) {
         
+        UIView.animateWithDuration(0.2, animations: { () -> Void in
             self.performSegueWithIdentifier("composeSegue", sender: self)
-
+        })
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -135,7 +136,7 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
             containerView.addSubview(toViewController.view)
             toViewController.view.alpha = 0
             
-            UIView.animateWithDuration(0.2, animations: { () -> Void in
+            UIView.animateWithDuration(0.1, animations: { () -> Void in
                 
                 toViewController.view.alpha = 1
                 
@@ -146,18 +147,28 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
             
         } else {
             
-            UIView.animateWithDuration(0.2, animations: { () -> Void in
-                
+            delay(0.5) {
+                UIView.animateWithDuration(0.1, animations: { () -> Void in
+    
                 fromViewController.view.alpha = 0
                 
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
                     fromViewController.view.removeFromSuperview()
             }
-            
         }
+        }
+            
     }
-
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
     
     override func didReceiveMemoryWarning() {
         
