@@ -8,8 +8,8 @@ This assignment is to show a custom Tab Bar Navigation along with a modal transi
 
 _Required_
 
-* [x] Required: Tapping on Home, Search, Account, or Trending should show the respective screen and highlight the tab bar button.
-* [x] Required: Compose button should modally present the compose screen.
+* [ ] Required: Tapping on Home, Search, Account, or Trending should show the respective screen and highlight the tab bar button.
+* [ ] Required: Compose button should modally present the compose screen.
 
 _Optional_
  
