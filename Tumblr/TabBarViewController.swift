@@ -41,24 +41,29 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
 
     @IBAction func onHomeButton(sender: AnyObject) {
 
-        self.addChildViewController(homeViewController)
+        searchViewController.view.removeFromSuperview()
+        trendingViewController.view.removeFromSuperview()
+        profileViewController.view.removeFromSuperview()
+        
         containerView.addSubview(homeViewController.view)
-        homeViewController.didMoveToParentViewController(self)
         
         homeButton.selected = true
         profileButton.selected = false
         searchButton.selected = false
         trendingButton.selected = false
+
         
     }
     
     // Search Nav Button
 
     @IBAction func onSearchButton(sender: AnyObject) {
-
-        self.addChildViewController(searchViewController)
+        
+        homeViewController.view.removeFromSuperview()
+        trendingViewController.view.removeFromSuperview()
+        profileViewController.view.removeFromSuperview()
+        
         containerView.addSubview(searchViewController.view)
-        didMoveToParentViewController(self)
         
         searchButton.selected = true
         homeButton.selected = false
@@ -69,10 +74,12 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
     // Trending Nav Button
 
     @IBAction func onTrendingButton(sender: AnyObject) {
+        
+        homeViewController.view.removeFromSuperview()
+        searchViewController.view.removeFromSuperview()
+        profileViewController.view.removeFromSuperview()
 
-        self.addChildViewController(trendingViewController)
         containerView.addSubview(trendingViewController.view)
-        trendingViewController.didMoveToParentViewController(self)
         trendingButton.selected = true
         homeButton.selected = false
         searchButton.selected = false
@@ -84,9 +91,7 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
 
     @IBAction func onProfileButton(sender: AnyObject) {
         
-        self.addChildViewController(profileViewController)
         containerView.addSubview(profileViewController.view)
-        profileViewController.didMoveToParentViewController(self)
         profileButton.selected = true
         homeButton.selected = false
         searchButton.selected = false
