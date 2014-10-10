@@ -95,8 +95,9 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
     }
     
     @IBAction func onComposeButton(sender: AnyObject) {
-        performSegueWithIdentifier("composeSegue", sender: self)
         
+            self.performSegueWithIdentifier("composeSegue", sender: self)
+
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -110,7 +111,7 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
     }
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        return 0.4
+        return 0.2
     }
     
     func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
@@ -131,8 +132,12 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         
         if (isPresenting) {
             
-            UIView.animateWithDuration(0.7, animations: { () -> Void in
-                //
+            containerView.addSubview(toViewController.view)
+            toViewController.view.alpha = 0
+            
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                
+                toViewController.view.alpha = 1
                 
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
@@ -141,8 +146,9 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
             
         } else {
             
-            UIView.animateWithDuration(0.7, animations: { () -> Void in
-                //
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                
+                fromViewController.view.alpha = 0
                 
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
