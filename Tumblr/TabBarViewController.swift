@@ -34,7 +34,6 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
     
         // Initial view will be Trending
         
-        trendingViewController.view.frame = containerView.frame
         containerView.addSubview(trendingViewController.view)
     }
     
@@ -42,24 +41,25 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
 
     @IBAction func onHomeButton(sender: AnyObject) {
 
-        homeViewController.view.frame = containerView.frame
         self.addChildViewController(homeViewController)
         containerView.addSubview(homeViewController.view)
         homeViewController.didMoveToParentViewController(self)
+        
         homeButton.selected = true
         profileButton.selected = false
         searchButton.selected = false
         trendingButton.selected = false
+        
     }
     
     // Search Nav Button
 
     @IBAction func onSearchButton(sender: AnyObject) {
 
-        searchViewController.view.frame = containerView.frame
-        containerView.addSubview(searchViewController.view)
         self.addChildViewController(searchViewController)
-        searchViewController.didMoveToParentViewController(self)
+        containerView.addSubview(searchViewController.view)
+        didMoveToParentViewController(self)
+        
         searchButton.selected = true
         homeButton.selected = false
         trendingButton.selected = false
@@ -70,7 +70,6 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
 
     @IBAction func onTrendingButton(sender: AnyObject) {
 
-        trendingViewController.view.frame = containerView.frame
         self.addChildViewController(trendingViewController)
         containerView.addSubview(trendingViewController.view)
         trendingViewController.didMoveToParentViewController(self)
@@ -78,13 +77,13 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         homeButton.selected = false
         searchButton.selected = false
         profileButton.selected = false
+        
     }
     
     // Profile Nav Button
 
     @IBAction func onProfileButton(sender: AnyObject) {
-
-        profileViewController.view.frame = containerView.frame
+        
         self.addChildViewController(profileViewController)
         containerView.addSubview(profileViewController.view)
         profileViewController.didMoveToParentViewController(self)
@@ -92,6 +91,7 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         homeButton.selected = false
         searchButton.selected = false
         trendingButton.selected = false
+        
     }
     
     @IBAction func onComposeButton(sender: AnyObject) {
@@ -102,8 +102,6 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        
-        // When preparing for the segue, make sure you define the destinationViewController as PhotoViewController. Set up the custom modal presentation style as well as transition delegation and of course calling the weddingImg that you already passed through the gestureRec into the destination View Controller.
         
         var destinationViewController = segue.destinationViewController as ComposeViewController
         destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom

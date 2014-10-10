@@ -20,8 +20,22 @@ class ComposeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Annimate in of buttons happens here...
 
+        
     
+//
+//        UIView.animateWithDuration(0.6, animations: { () -> Void in
+//            self.videoButton.transform = CGAffineTransformMakeTranslation(CGFloat(0), CGFloat(160))
+//            self.chatButton.transform = CGAffineTransformMakeTranslation(CGFloat(0), CGFloat(160))
+//            self.linkButton.transform = CGAffineTransformMakeTranslation(CGFloat(0), CGFloat(160))
+//            self.quoteButton.transform = CGAffineTransformMakeTranslation(CGFloat(0), CGFloat(160))
+//            self.photoButton.transform = CGAffineTransformMakeTranslation(CGFloat(0), CGFloat(160))
+//            self.textButton.transform = CGAffineTransformMakeTranslation(CGFloat(0), CGFloat(160))
+//
+//        })
+        
     }
 
     override func didReceiveMemoryWarning() {
