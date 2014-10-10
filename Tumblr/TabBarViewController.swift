@@ -131,11 +131,23 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         
         if (isPresenting) {
             
-            //
+            UIView.animateWithDuration(0.7, animations: { () -> Void in
+                //
+                
+                }) { (finished: Bool) -> Void in
+                    transitionContext.completeTransition(true)
+                    fromViewController.view.removeFromSuperview()
+            }
             
         } else {
             
-            //
+            UIView.animateWithDuration(0.7, animations: { () -> Void in
+                //
+                
+                }) { (finished: Bool) -> Void in
+                    transitionContext.completeTransition(true)
+                    fromViewController.view.removeFromSuperview()
+            }
             
         }
     }
