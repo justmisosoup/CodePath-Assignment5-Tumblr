@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TabBarViewController: UIViewController {
+class TabBarViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var homeButton: UIButton!
@@ -20,7 +20,8 @@ class TabBarViewController: UIViewController {
     var searchViewController : UIViewController!
     var trendingViewController : UIViewController!
     var profileViewController : UIViewController!
-    
+    var isPresenting : Bool = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,6 +98,48 @@ class TabBarViewController: UIViewController {
         performSegueWithIdentifier("composeSegue", sender: self)
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        // When preparing for the segue, make sure you define the destinationViewController as PhotoViewController. Set up the custom modal presentation style as well as transition delegation and of course calling the weddingImg that you already passed through the gestureRec into the destination View Controller.
+        
+        var destinationViewController = segue.destinationViewController as ComposeViewController
+        destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+        destinationViewController.transitioningDelegate = self
+        
+    }
+    
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+        return 0.4
+    }
+    
+    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+        isPresenting = true
+        return self
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+        isPresenting = false
+        return self
+    }
+    
+    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        
+        var containerView = transitionContext.containerView()
+        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        
+        if (isPresenting) {
+            
+            //
+            
+        } else {
+            
+            //
+            
+        }
+    }
+
     
     override func didReceiveMemoryWarning() {
         
