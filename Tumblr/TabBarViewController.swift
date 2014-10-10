@@ -55,7 +55,10 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         profileButton.selected = false
         searchButton.selected = false
         trendingButton.selected = false
-        exploreTab.hidden = false
+        
+        UIView.animateWithDuration(0.1, animations: { () -> Void in
+            self.exploreTab.alpha = 1
+        })
 
         
     }
@@ -74,7 +77,11 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         homeButton.selected = false
         trendingButton.selected = false
         profileButton.selected = false
-        exploreTab.hidden = true
+        
+        UIView.animateWithDuration(0.1, animations: { () -> Void in
+            self.exploreTab.alpha = 0
+        })
+
     }
     
     // Trending Nav Button
@@ -90,7 +97,10 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         homeButton.selected = false
         searchButton.selected = false
         profileButton.selected = false
-        exploreTab.hidden = false
+        
+        UIView.animateWithDuration(0.1, animations: { () -> Void in
+            self.exploreTab.alpha = 1
+        })
         
     }
     
@@ -107,7 +117,10 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         homeButton.selected = false
         searchButton.selected = false
         trendingButton.selected = false
-        exploreTab.hidden = false
+        
+        UIView.animateWithDuration(0.1, animations: { () -> Void in
+            self.exploreTab.alpha = 1
+        })
         
     }
     
