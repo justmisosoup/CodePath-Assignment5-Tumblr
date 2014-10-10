@@ -10,6 +10,7 @@ import UIKit
 
 class TabBarViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
 
+    @IBOutlet weak var exploreTab: UIImageView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
@@ -32,15 +33,18 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         trendingViewController = storyboard.instantiateViewControllerWithIdentifier("TrendingViewController") as UIViewController
         profileViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController") as UIViewController
     
-        // Initial view will be Trending
+        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat, animations: { () -> Void in
+            self.exploreTab.transform = CGAffineTransformMakeTranslation(0, 5)
+            }, completion: nil)
         
+        // Initial view will be Trending
         containerView.addSubview(trendingViewController.view)
     }
     
     // Home Nav Button
 
     @IBAction func onHomeButton(sender: AnyObject) {
-
+        
         searchViewController.view.removeFromSuperview()
         trendingViewController.view.removeFromSuperview()
         profileViewController.view.removeFromSuperview()
@@ -51,6 +55,7 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         profileButton.selected = false
         searchButton.selected = false
         trendingButton.selected = false
+        exploreTab.hidden = false
 
         
     }
@@ -69,6 +74,7 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         homeButton.selected = false
         trendingButton.selected = false
         profileButton.selected = false
+        exploreTab.hidden = true
     }
     
     // Trending Nav Button
@@ -84,6 +90,7 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         homeButton.selected = false
         searchButton.selected = false
         profileButton.selected = false
+        exploreTab.hidden = false
         
     }
     
@@ -91,11 +98,16 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
 
     @IBAction func onProfileButton(sender: AnyObject) {
         
+        homeViewController.view.removeFromSuperview()
+        searchViewController.view.removeFromSuperview()
+        trendingViewController.view.removeFromSuperview()
+        
         containerView.addSubview(profileViewController.view)
         profileButton.selected = true
         homeButton.selected = false
         searchButton.selected = false
         trendingButton.selected = false
+        exploreTab.hidden = false
         
     }
     
