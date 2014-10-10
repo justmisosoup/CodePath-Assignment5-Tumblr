@@ -33,8 +33,8 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         trendingViewController = storyboard.instantiateViewControllerWithIdentifier("TrendingViewController") as UIViewController
         profileViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController") as UIViewController
     
-        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat, animations: { () -> Void in
-            self.exploreTab.transform = CGAffineTransformMakeTranslation(0, 5)
+        UIView.animateWithDuration(0.9, delay: 0, options: UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat, animations: { () -> Void in
+            self.exploreTab.transform = CGAffineTransformMakeTranslation(0, -6)
             }, completion: nil)
         
         // Initial view will be Trending
