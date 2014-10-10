@@ -10,6 +10,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    @IBOutlet weak var loaderView: UIView!
     @IBOutlet weak var feedViewImg: UIImageView!
     @IBOutlet weak var loader1Img: UIImageView!
     @IBOutlet weak var loader2Img: UIImageView!
