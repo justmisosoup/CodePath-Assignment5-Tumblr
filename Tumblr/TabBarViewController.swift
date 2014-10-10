@@ -45,6 +45,8 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
 
     @IBAction func onHomeButton(sender: AnyObject) {
         
+        // Discard any existing View Controllers 
+        
         searchViewController.view.removeFromSuperview()
         trendingViewController.view.removeFromSuperview()
         profileViewController.view.removeFromSuperview()
@@ -67,6 +69,8 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
 
     @IBAction func onSearchButton(sender: AnyObject) {
         
+        // Discard any existing View Controllers
+
         homeViewController.view.removeFromSuperview()
         trendingViewController.view.removeFromSuperview()
         profileViewController.view.removeFromSuperview()
@@ -88,11 +92,14 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
 
     @IBAction func onTrendingButton(sender: AnyObject) {
         
+        // Discard any existing View Controllers
+
         homeViewController.view.removeFromSuperview()
         searchViewController.view.removeFromSuperview()
         profileViewController.view.removeFromSuperview()
 
         containerView.addSubview(trendingViewController.view)
+        
         trendingButton.selected = true
         homeButton.selected = false
         searchButton.selected = false
@@ -108,11 +115,14 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
 
     @IBAction func onProfileButton(sender: AnyObject) {
         
+        // Discard any existing View Controllers
+
         homeViewController.view.removeFromSuperview()
         searchViewController.view.removeFromSuperview()
         trendingViewController.view.removeFromSuperview()
         
         containerView.addSubview(profileViewController.view)
+        
         profileButton.selected = true
         homeButton.selected = false
         searchButton.selected = false
@@ -133,7 +143,7 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
-        var destinationViewController = segue.destinationViewController as ComposeViewController
+        var destinationViewController = segue.destinationViewController as UIViewController
         destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
         destinationViewController.transitioningDelegate = self
         

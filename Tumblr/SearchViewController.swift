@@ -10,26 +10,33 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    @IBOutlet weak var feedViewImg: UIImageView!
+    @IBOutlet weak var loader1Img: UIImageView!
+    @IBOutlet weak var loader2Img: UIImageView!
+    @IBOutlet weak var loader3Img: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+        
+        feedViewImg.alpha = 0
+        loader2Img.alpha = 0
+        loader3Img.alpha = 0
+        
+        UIView.animateWithDuration(2, animations: { () -> Void in
+            
+            self.loader1Img.transform = CGAffineTransformMakeTranslation(0, 12)
+            
+            }) { (finshed: Bool) -> Void in
+                
+                self.feedViewImg.alpha = 1
+                self.loader1Img.alpha = 0
+        }
+        
+        }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
 
 }
