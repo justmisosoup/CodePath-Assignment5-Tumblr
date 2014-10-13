@@ -40,11 +40,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="Hiy-Hn-pcq">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.25882352939999997" blue="0.33725490200000002" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
+                            <view contentMode="scaleToFill" id="0XQ-FY-ra5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="HU8-Ht-uNz">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
@@ -108,20 +107,20 @@
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.25882352939999997" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="explore_popup" id="jj3-cz-k8p">
-                                <rect key="frame" x="-1" y="455" width="185" height="77"/>
+                                <rect key="frame" x="-4" y="457" width="185" height="77"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="containerView" destination="Hiy-Hn-pcq" id="3KN-db-wZp"/>
+                        <outlet property="containerView" destination="0XQ-FY-ra5" id="96G-SY-7vl"/>
                         <outlet property="exploreTab" destination="jj3-cz-k8p" id="faC-ih-40Y"/>
                         <outlet property="homeButton" destination="GHS-6o-8vE" id="GM6-YQ-v7Q"/>
                         <outlet property="profileButton" destination="FUN-BV-anz" id="mz1-FT-mY9"/>
                         <outlet property="searchButton" destination="5WS-8H-lmg" id="sTG-TE-efA"/>
                         <outlet property="trendingButton" destination="x9p-hl-APR" id="bQd-ph-Oqk"/>
-                        <segue destination="ko1-PR-so7" kind="modal" identifier="composeSegue" animates="NO" id="h2l-bg-mSD"/>
+                        <segue destination="ko1-PR-so7" kind="custom" identifier="composeSegue" id="h2l-bg-mSD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qOT-lT-Ays" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -202,6 +201,7 @@
                         <outlet property="chatButton" destination="DNn-i7-liz" id="EG0-bC-6fT"/>
                         <outlet property="darkModalView" destination="IPU-QL-PZ6" id="E34-83-f1g"/>
                         <outlet property="linkButton" destination="ADx-Dw-htC" id="nCV-W4-N0Z"/>
+                        <outlet property="nevermindButton" destination="hft-fa-F1D" id="Ojx-vo-Px6"/>
                         <outlet property="photoButton" destination="v1f-2q-kbJ" id="dYe-mh-sdk"/>
                         <outlet property="quoteButton" destination="F4B-fa-TvS" id="82y-O1-LTV"/>
                         <outlet property="textButton" destination="Z5y-d6-lnO" id="GeM-K3-NHh"/>
@@ -220,37 +220,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading-1" id="AqQ-89-1A9">
+                                <rect key="frame" x="130" y="252" width="61" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_feed" id="ULQ-YT-mNL">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" id="rWL-df-09b" userLabel="loaderView">
-                                <rect key="frame" x="80" y="223" width="160" height="77"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading-1" id="GkW-nA-RT4">
-                                        <rect key="frame" x="49" y="29" width="61" height="19"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading-2" id="CUj-8B-8ii">
-                                        <rect key="frame" x="49" y="29" width="61" height="19"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading-3" id="MUt-Dv-Nog">
-                                        <rect key="frame" x="49" y="29" width="61" height="19"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.25882352939999997" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="feedViewImg" destination="ULQ-YT-mNL" id="kDd-XA-s6z"/>
-                        <outlet property="loader1Img" destination="GkW-nA-RT4" id="9XF-FS-3MB"/>
-                        <outlet property="loader2Img" destination="CUj-8B-8ii" id="F06-e9-U57"/>
-                        <outlet property="loader3Img" destination="MUt-Dv-Nog" id="8QP-aP-Lza"/>
-                        <outlet property="loaderView" destination="rWL-df-09b" id="UtO-Se-BuL"/>
+                        <outlet property="loadingImg" destination="AqQ-89-1A9" id="L0a-7a-9MS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MsO-mQ-u82" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -330,8 +313,6 @@
         <image name="home_spinner" width="146" height="146"/>
         <image name="link_icon" width="75" height="95"/>
         <image name="loading-1" width="61" height="19"/>
-        <image name="loading-2" width="61" height="19"/>
-        <image name="loading-3" width="61" height="19"/>
         <image name="nevermind" width="320" height="53"/>
         <image name="photo_icon" width="75" height="95"/>
         <image name="quote_icon" width="75" height="96"/>

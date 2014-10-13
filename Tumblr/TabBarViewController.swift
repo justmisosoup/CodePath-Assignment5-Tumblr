@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TabBarViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+class TabBarViewController: UIViewController {
 
     @IBOutlet weak var exploreTab: UIImageView!
     @IBOutlet weak var containerView: UIView!
@@ -140,73 +140,152 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
             self.performSegueWithIdentifier("composeSegue", sender: self)
         })
     }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
         var destinationViewController = segue.destinationViewController as UIViewController
         destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
-        destinationViewController.transitioningDelegate = self
+        destinationViewController.transitioningDelegate = destinationViewController as ComposeViewController
         
     }
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        return 0.2
-    }
-    
-    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
-        isPresenting = true
-        return self
-    }
-    
-    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
-        isPresenting = false
-        return self
-    }
-    
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        
-        var containerView = transitionContext.containerView()
-        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
-        
-        if (isPresenting) {
-            
-            containerView.addSubview(toViewController.view)
-            toViewController.view.alpha = 0
-            
-            UIView.animateWithDuration(0.1, animations: { () -> Void in
-                
-                toViewController.view.alpha = 1
-                
-                }) { (finished: Bool) -> Void in
-                    transitionContext.completeTransition(true)
-                    fromViewController.view.removeFromSuperview()
-            }
-            
-        } else {
-            
-            delay(0.5) {
-                UIView.animateWithDuration(0.1, animations: { () -> Void in
-    
-                fromViewController.view.alpha = 0
-                
-                }) { (finished: Bool) -> Void in
-                    transitionContext.completeTransition(true)
-                    fromViewController.view.removeFromSuperview()
-            }
-        }
-        }
-            
-    }
-    
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
-    }
+//    
+//    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+//        return 0.9
+//    }
+//    
+//    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+//        isPresenting = true
+//        return self
+//    }
+//    
+//    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+//        isPresenting = false
+//        return self
+//    }
+//    
+
+//
+//    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+//        
+//        var containerView = transitionContext.containerView()
+//        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+//        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+//        
+//        if (isPresenting) {
+//            println("Starting")
+//            
+//            let vc = fromViewController as ComposeViewController
+//
+//            vc.textButton.transform = CGAffineTransformMakeTranslation(0, 500)
+//            vc.photoButton.transform = CGAffineTransformMakeTranslation(0, 500)
+//            vc.quoteButton.transform = CGAffineTransformMakeTranslation(0, 500)
+//            vc.linkButton.transform = CGAffineTransformMakeTranslation(0, 500)
+//            vc.chatButton.transform = CGAffineTransformMakeTranslation(0, 500)
+//            vc.videoButton.transform = CGAffineTransformMakeTranslation(0, 500)
+//            vc.nevermindButton.transform = CGAffineTransformMakeTranslation(0, 200)
+//            
+//            
+//            containerView.addSubview(toViewController.view)
+//            
+//            UIView.animateWithDuration(0.9, animations: { () -> Void in
+//                
+//                toViewController.view.alpha = 1
+//
+//                }) { (finished: Bool) -> Void in
+//
+//                    UIView.animateWithDuration(0.1, animations: { () -> Void in
+//                        vc.photoButton.transform = CGAffineTransformMakeTranslation(0, 0)
+//                    })
+//                    
+//                    UIView.animateWithDuration(0.2, animations: { () -> Void in
+//                        vc.chatButton.transform = CGAffineTransformMakeTranslation(0, 0)
+//                        vc.quoteButton.transform = CGAffineTransformMakeTranslation(0, 0)
+//                    })
+//                    
+//                    UIView.animateWithDuration(0.3, animations: { () -> Void in
+//                        vc.textButton.transform = CGAffineTransformMakeTranslation(0, 0)
+//                    })
+//                    
+//                    UIView.animateWithDuration(0.5, animations: { () -> Void in
+//                        vc.linkButton.transform = CGAffineTransformMakeTranslation(0, 0)
+//                    })
+//                    
+//                    UIView.animateWithDuration(0.6, animations: { () -> Void in
+//                        vc.videoButton.transform = CGAffineTransformMakeTranslation(0, 0)
+//                    })
+//                    
+//                    UIView.animateWithDuration(0.6, animations: { () -> Void in
+//                        vc.nevermindButton.transform = CGAffineTransformMakeTranslation(0, 0)
+//                    })
+//                 
+//                    transitionContext.completeTransition(true)
+//                    
+//            }
+//
+//            
+//            UIView.animateWithDuration(0.1, animations: { () -> Void in
+//                
+//                toViewController.view.alpha = 1
+//                
+//                }) { (finished: Bool) -> Void in
+//                    transitionContext.completeTransition(true)
+//                    fromViewController.view.removeFromSuperview()
+//            }
+//            
+//        } else {
+//            
+//            println("Finishing")
+//            
+//            let vc = fromViewController as ComposeViewController
+//            
+//            UIView.animateWithDuration(0.1, animations: { () -> Void in
+//                vc.photoButton.transform = CGAffineTransformMakeTranslation(0, -500)
+//            })
+//            
+//            UIView.animateWithDuration(0.2, animations: { () -> Void in
+//                vc.chatButton.transform = CGAffineTransformMakeTranslation(0, -500)
+//                vc.quoteButton.transform = CGAffineTransformMakeTranslation(0, -500)
+//                
+//            })
+//            
+//            UIView.animateWithDuration(0.3, animations: { () -> Void in
+//                vc.textButton.transform = CGAffineTransformMakeTranslation(0, -500)
+//            })
+//            
+//            UIView.animateWithDuration(0.5, animations: { () -> Void in
+//                vc.linkButton.transform = CGAffineTransformMakeTranslation(0, -500)
+//            })
+//            
+//            UIView.animateWithDuration(0.6, animations: { () -> Void in
+//                vc.videoButton.transform = CGAffineTransformMakeTranslation(0, -500)
+//            })
+//            
+//            UIView.animateWithDuration(0.6, animations: { () -> Void in
+//                vc.nevermindButton.transform = CGAffineTransformMakeTranslation(0, 200)
+//            })
+//            
+//            delay(0.5) {
+//                UIView.animateWithDuration(0.1, animations: { () -> Void in
+//    
+//                fromViewController.view.alpha = 0
+//                
+//                }) { (finished: Bool) -> Void in
+//                    transitionContext.completeTransition(true)
+//                    fromViewController.view.removeFromSuperview()
+//            }
+//        }
+//        }
+//            
+//    }
+//    
+//    func delay(delay:Double, closure:()->()) {
+//        dispatch_after(
+//            dispatch_time(
+//                DISPATCH_TIME_NOW,
+//                Int64(delay * Double(NSEC_PER_SEC))
+//            ),
+//            dispatch_get_main_queue(), closure)
+//    }
     
     override func didReceiveMemoryWarning() {
         

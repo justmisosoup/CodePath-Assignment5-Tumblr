@@ -9,32 +9,37 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
-    @IBOutlet weak var loaderView: UIView!
-    @IBOutlet weak var feedViewImg: UIImageView!
-    @IBOutlet weak var loader1Img: UIImageView!
-    @IBOutlet weak var loader2Img: UIImageView!
-    @IBOutlet weak var loader3Img: UIImageView!
     
+    @IBOutlet weak var loadingImg: UIImageView!
+    @IBOutlet weak var feedViewImg: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         feedViewImg.alpha = 0
-        loader2Img.alpha = 0
-        loader3Img.alpha = 0
+        var images = UIImage.animatedImageNamed("loading-", duration: 0.9)
+        loadingImg.image = images
         
-        UIView.animateWithDuration(2, animations: { () -> Void in
+        }
+    
+    override func viewDidAppear(animated: Bool) {
+        delay(1) {
             
-            self.loader1Img.transform = CGAffineTransformMakeTranslation(0, 12)
-            
-            }) { (finshed: Bool) -> Void in
-                
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
                 self.feedViewImg.alpha = 1
-                self.loader1Img.alpha = 0
+            })
         }
-        
-        }
+    }
 
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
