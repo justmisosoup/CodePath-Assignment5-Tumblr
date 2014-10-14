@@ -2,19 +2,20 @@
 
 This assignment is to show a custom Tab Bar Navigation along with a modal transition animation. 
 
-**Time spent:** 1.5 hours thus far
+**Time spent:** 8.5 hours thus far
 
 **Completed user stories:**
 
 _Required_
 
-* [ ] Required: Tapping on Home, Search, Account, or Trending should show the respective screen and highlight the tab bar button.
-* [ ] Required: Compose button should modally present the compose screen.
+* [x] Required: Tapping on Home, Search, Account, or Trending should show the respective screen and highlight the tab bar button.
+* [x] Required: Compose button should modally present the compose screen.
 
 _Optional_
  
-* [ ] Optional: Compose screen is faded in while the buttons animate in.
-* [ ] Optional: Discover bubble should bob up and down unless the SearchViewController is tapped.
+* [x] Optional: Compose screen is faded in while the buttons animate in.
+* [x] Optional: Discover bubble should bob up and down unless the SearchViewController is tapped.
+* [ ] Optional: Login button should show animate the login form over the view controller.
 
 **Notes:**
 
