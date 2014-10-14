@@ -75,7 +75,9 @@ class TabBarViewController: UIViewController {
         trendingViewController.view.removeFromSuperview()
         profileViewController.view.removeFromSuperview()
         
+        self.addChildViewController(searchViewController)
         containerView.addSubview(searchViewController.view)
+        searchViewController.didMoveToParentViewController(self)
         
         searchButton.selected = true
         homeButton.selected = false

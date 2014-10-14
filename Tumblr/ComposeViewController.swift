@@ -69,7 +69,7 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
             animateIcons(-500)
             
             delay(0.5) {
-                UIView.animateWithDuration(0.3, animations: { () -> Void in
+                UIView.animateWithDuration(0.1, animations: { () -> Void in
                     
                     fromViewController.view.alpha = 0
                     
