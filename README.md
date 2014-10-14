@@ -1,4 +1,4 @@
-# Tumblr Tab Bar Nav + Compose Modal
+# Tumblr 
 
 This assignment is to show a custom Tab Bar Navigation along with a modal transition animation. 
 
