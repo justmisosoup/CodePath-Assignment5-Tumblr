@@ -17,7 +17,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         feedViewImg.alpha = 0
-        var images = UIImage.animatedImageNamed("loading-", duration: 0.9)
+        var images = UIImage.animatedImageNamed("loading-", duration: 0.5)
         loadingImg.image = images
         
         }

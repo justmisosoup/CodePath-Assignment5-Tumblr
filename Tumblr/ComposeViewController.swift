@@ -48,10 +48,14 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
         var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         
         if (isPresenting) {
+            
+            // Introduce Buttons
+            
             println("Starting")
+            animateIcons(0)
+            
             containerView.addSubview(toViewController.view)
             toViewController.view.alpha = 0
-            animateIcons(0)
             
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 
@@ -65,6 +69,9 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
             
             
         } else {
+            
+            // Exit Buttons
+            
             println("Finishing")
             animateIcons(-500)
             
@@ -86,28 +93,38 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
         
     }
     
+    // Create a function to call above for position of buttons
+
     func animateIcons(position : CGFloat) {
         
         println("Finishing")
         
+        // Photo Button
         
         UIView.animateWithDuration(0.1, animations: { () -> Void in
             self.photoButton.transform = CGAffineTransformMakeTranslation(0, position)
         })
         
+        // Chat & Quote Button
+        
         UIView.animateWithDuration(0.2, animations: { () -> Void in
             self.chatButton.transform = CGAffineTransformMakeTranslation(0, position)
             self.quoteButton.transform = CGAffineTransformMakeTranslation(0, position)
-            
         })
+        
+        // Text Button
         
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.textButton.transform = CGAffineTransformMakeTranslation(0, position)
         })
         
+        // Link Button
+        
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.linkButton.transform = CGAffineTransformMakeTranslation(0, position)
         })
+        
+        // Video Button
         
         UIView.animateWithDuration(0.6, animations: { () -> Void in
             self.videoButton.transform = CGAffineTransformMakeTranslation(0, position)
