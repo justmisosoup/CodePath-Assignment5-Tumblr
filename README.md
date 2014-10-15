@@ -23,6 +23,6 @@ None yet...
 
 **Walkthrough of all user stories:**
 
-![Video Walkthrough]()
+![Video Walkthrough](assignment5-tumblr-sara)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
