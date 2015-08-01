@@ -28,10 +28,10 @@ class TabBarViewController: UIViewController {
         
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        homeViewController = storyboard.instantiateViewControllerWithIdentifier("HomeViewController") as UIViewController
-        searchViewController = storyboard.instantiateViewControllerWithIdentifier("SearchViewController") as UIViewController
-        trendingViewController = storyboard.instantiateViewControllerWithIdentifier("TrendingViewController") as UIViewController
-        profileViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController") as UIViewController
+        homeViewController = storyboard.instantiateViewControllerWithIdentifier("HomeViewController") as! UIViewController
+        searchViewController = storyboard.instantiateViewControllerWithIdentifier("SearchViewController") as! UIViewController
+        trendingViewController = storyboard.instantiateViewControllerWithIdentifier("TrendingViewController") as! UIViewController
+        profileViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController") as! UIViewController
     
         UIView.animateWithDuration(0.9, delay: 0, options: UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat, animations: { () -> Void in
             self.exploreTab.transform = CGAffineTransformMakeTranslation(0, -6)
@@ -144,9 +144,9 @@ class TabBarViewController: UIViewController {
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
-        var destinationViewController = segue.destinationViewController as UIViewController
+        var destinationViewController = segue.destinationViewController as! UIViewController
         destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
-        destinationViewController.transitioningDelegate = destinationViewController as ComposeViewController
+        destinationViewController.transitioningDelegate = destinationViewController as! ComposeViewController
         
     }
     
